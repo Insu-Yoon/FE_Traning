@@ -1,0 +1,235 @@
+$blue: rgb(73, 75, 180);
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #d63384;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #198754;
+$teal: #20c997;
+$cyan: #0dcaf0;
+
+div {
+  box-sizing: border-box;
+}
+.side-bar {
+  background-color: $blue;
+  position: fixed;
+  width: 40px;
+  height: 100%;
+  text-align: center;
+  transition: all 1s;
+  &:hover {
+    width: 140px;
+    .icon-container {
+      animation-name: icons;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+    }
+    .text-container {
+      animation-name: iconname;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+.menu-pack {
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: lightgrey;
+  &:hover {
+    color: white;
+  }
+}
+.icon-container {
+  width: 30%;
+  transform: translateX(100%);
+}
+.text-container {
+  width: 70%;
+  text-align: left;
+  padding-left: 5px;
+  transform: translateX(-500%);
+}
+
+@keyframes icons {
+  0% {
+    transform: translateX(95%);
+  }
+  100% {
+    transform: translateX(15%);
+  }
+}
+
+@keyframes iconname {
+  0% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+.nav-container {
+  padding: 5px 0px;
+  background-color: rgb(250, 250, 250);
+}
+.nav-bar {
+  margin-left: 40px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: left;
+  background-color: white;
+  box-shadow: 0px 5px 5px 0px rgb(204, 204, 204);
+}
+
+.main-area {
+  height: 100%;
+  margin-left: 40px;
+  padding: 20px;
+  background-color: rgb(240, 240, 240);
+}
+
+.form-control {
+  width: 20%;
+  border-radius: 5px 0px 0px 5px;
+}
+.form-control:focus-within {
+  transition: all 1s;
+  width: 30%;
+}
+.btn {
+  text-align: left;
+  background-color: rgb(52, 58, 64);
+  color: white;
+  border-radius: 0px 5px 5px 0px;
+  width: 50px;
+  &:hover {
+    background-color: rgb(52, 58, 64);
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.dash-title {
+  margin: 10px 0px 20px 0px;
+  font-weight: bold;
+}
+
+.dash-container {
+  padding: 10px;
+  margin: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin dash-item($color) {
+  box-sizing: border-box;
+  border-radius: 5px;
+  border-left: 3px solid $color;
+  box-shadow: 0px 0px 5px rgb(170, 170, 170);
+  padding: 20px 0px;
+  background-color: white;
+  h4 {
+    font-size: 1em;
+  }
+  h3 {
+    font-size: 1.2em;
+    margin: 0px;
+  }
+  i {
+    margin-top: 8px;
+    text-align: center;
+    color: gray;
+  }
+}
+
+.dash-1 {
+  @include dash-item($cyan);
+}
+.dash-2 {
+  @include dash-item($green);
+}
+.dash-3 {
+  @include dash-item($blue);
+}
+.dash-4 {
+  @include dash-item($yellow);
+}
+.main-bottom {
+  margin-left: 0px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0px;
+}
+.chart-area {
+  padding-left: 0px;
+  padding-right: 10px;
+}
+.task-area {
+  padding-left: 10px;
+}
+
+.chart-container,
+.task-container {
+  border-radius: 5px;
+  padding: 0px;
+  box-shadow: 0px 0px 2px rgb(170, 170, 170);
+}
+
+.overview-chart {
+  background-color: white;
+}
+%font {
+  border-bottom: 1px solid lightgray;
+  padding: 5px;
+  font-size: 17px;
+  p {
+    margin: 10px 10px;
+  }
+}
+.bottom-title {
+  @extend %font;
+  font-weight: bold;
+}
+.task-list {
+  @extend %font;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-right: 20px;
+  p {
+    width: 80%;
+  }
+  button {
+    text-align: center;
+    background-color: rgb(0, 110, 255);
+    border: 0px;
+    color: white;
+    height: 50%;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 14px;
+    padding: 0px 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dash-container {
+    width: 100%;
+    .col-12 {
+      margin-bottom: 10px;
+      & > .col-3 {
+        text-align: center;
+        padding-left: 50px;
+      }
+    }
+  }
+
+  .task-area {
+    margin-top: 20px;
+  }
+}

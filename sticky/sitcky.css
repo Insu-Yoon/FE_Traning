@@ -1,0 +1,12 @@
+.grey {
+  background-color: lightgrey;
+  height: 2000px;
+  margin-top: 500px;
+}
+
+.image {
+  float: right;
+  width: 400px;
+  position: sticky;
+  top: 200px;
+}/*# sourceMappingURL=sitcky.css.map */

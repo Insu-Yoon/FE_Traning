@@ -1,0 +1,54 @@
+@charset "UTF-8";
+.ani-box {
+  padding: 50px;
+  width: 300px;
+  height: 300px;
+  display: block;
+}
+.ani-box .ani-btn {
+  padding: 10px;
+}
+.ani-box .ani-btn:hover {
+  animation: 흔들흔들 0.7s;
+}
+.ani-box .ani-p {
+  width: -moz-min-content;
+  width: min-content;
+  height: 140px;
+  font-size: 80px;
+  box-sizing: border-box;
+  padding: 5px;
+  margin: auto;
+}
+.ani-box .ani-p:hover {
+  animation: 빙글뿅 0.5s forwards;
+}
+
+@keyframes 흔들흔들 {
+  0% {
+    transform: none;
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+@keyframes 빙글뿅 {
+  0% {
+    transform: none;
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(45deg) scale(1.5);
+  }
+}/*# sourceMappingURL=animation.css.map */
