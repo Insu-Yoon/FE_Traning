@@ -1,0 +1,25 @@
+body,
+h1 {
+  margin: 0px;
+}
+body {
+  position: relative;
+}
+.hidden {
+  display: none;
+}
+
+.login-form,
+.h1-test {
+}
+
+.top-nav {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: lightgray;
+  margin: 0px;
+}
