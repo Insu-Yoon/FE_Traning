@@ -1,3 +1,19 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+.scroll-progress {
+  width: 0%;
+  height: 2px;
+  background-color: black;
+}
+
+.theme-toggle:hover {
+  cursor: pointer;
+}
+
 .alert-box {
   background-color: skyblue;
   padding: 20px;
@@ -8,6 +24,7 @@
 
 .list-group {
   display: none;
+  width: 100%;
 }
 
 .show {
@@ -33,4 +50,36 @@
 .main-bg {
   padding: 100px 20px;
   background-color: lightgray;
+}
+
+.padding-box {
+  height: 60px;
+}
+
+.set-time-test {
+  height: 60px;
+}
+
+.slide-box {
+  width: 30vw;
+  overflow: hidden;
+}
+
+.slide-container {
+  width: 90vw;
+  transition: all 0.5s;
+  transform: translateX(0);
+}
+
+.img-container {
+  float: left;
+}
+.img-container img {
+  width: 30vw;
+}
+
+.lorem-container {
+  width: 30%;
+  height: 150px;
+  overflow: scroll;
 }/*# sourceMappingURL=basic.css.map */
