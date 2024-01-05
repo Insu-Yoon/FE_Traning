@@ -56,8 +56,8 @@
 }
 .slide-container {
   width: 90vw;
-  transition: all 0.5s;
   transform: translateX(0);
+  transition: all 0.5s;
 }
 .img-container {
   float: left;
@@ -70,4 +70,11 @@
   width: 30%;
   height: 150px;
   overflow: scroll;
+}
+body {
+  position: relative;
+}
+.detail-btn {
+  position: fixed;
+  transform: translateY(-800px);
 }

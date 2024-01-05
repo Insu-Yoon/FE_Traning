@@ -1,0 +1,15 @@
+<form action="">
+  <input type="password" class="pw" />
+  <button type="submit" class="btn-login">로그인</button>
+</form>
+<script>
+  document.querySelector('.btn-login').addEventListener('click', function () {
+    let pW = document.querySelector('.pw').value;
+
+    if (pW == '') {
+      alert('비번 입력하세요');
+    } else if (/[A-Z]/.test(pW) == false) {
+      alert('대문자 없어요');
+    }
+  });
+</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/basic.css" />
+    <title>Basic</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100" />
+          <h5>Card title</h5>
+          <p>가격 : 70000</p>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="container">
+      <button class="btn btn-danger" id="more">더보기</button>
+    </div>
+    <div class="container">
+      <button class="btn btn-danger mt-2" id="sort-price">가격순 정렬</button>
+    </div>
+    <div class="container">
+      <button class="btn btn-danger mt-2" id="sort-cba">다나가순 정렬</button>
+    </div>
+    <div class="container">
+      <button class="btn btn-danger mt-2" id="filtering">
+        6만원이하 필터링
+      </button>
+    </div>
+    <script>
+      var products = [
+        { id: 0, price: 70000, title: 'Blossom Dress' },
+        { id: 1, price: 50000, title: 'Springfield Shirt' },
+        { id: 2, price: 60000, title: 'Black Monastery' },
+      ];
+    </script>
+    <!-- Script zone -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="js/detail.js"></script>
+    <script src="js/list.js"></script>
+  </body>
+</html>

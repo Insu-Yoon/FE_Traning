@@ -28,8 +28,7 @@ function modalBlack(event) {
 
 function emptyCheck(event) {
   if ($('.username').val() == '') {
-    alert('아이디를 입력해주세요');
-    event.preventDefault();
+    alert('아이디를 입력해주세요'), event.preventDefault();
   } else if ($('.password').val() == '') {
     alert('비밀번호를 입력해주세요');
     event.preventDefault();
@@ -121,7 +120,6 @@ $('.lorem-container').on('scroll', checkScroll);
 function checkScroll() {
   const con = $('.lorem-container');
   if (con.scrollTop() + con.innerHeight() + 10 > con.prop('scrollHeight')) {
-    console.log('다읽음');
     $('.lorem-container').off('scroll');
     $('.check-btn').attr('disabled', false);
   }
@@ -142,3 +140,77 @@ function checkProgress() {
 $('.prev-btn').on('click', prevSlide);
 $('.slide-num-btn').on('click', slideNum);
 $('.next-btn').on('click', nextSlide);
+
+const detailBtn = $('.detail-btn');
+detailBtn.on('click', toBasicTab);
+function toBasicTab() {
+  $.get('http://127.0.0.1:3000/detail.html')
+    .done(function (data) {
+      console.log(data);
+      location.href = 'http://127.0.0.1:3000/detail.html';
+    })
+    .fail(function () {
+      console.log('실패요');
+    });
+}
+let startPoint;
+let endPoint;
+let checkMouseDown = false;
+let currTrans;
+let now;
+
+const imgC = $('.img-container');
+imgC.on('mousedown', touchSlide);
+function touchSlide(event) {
+  $('.slide-container').css('transition', 'none');
+  checkMouseDown = true;
+  startPoint = event.clientX;
+  currTrans = $('.slide-container').css('-webkit-transform').split(/[()]/)[1];
+  now = currTrans.split(',')[4];
+}
+
+imgC.on('mousemove', touchSlide2);
+function touchSlide2(event) {
+  if (checkMouseDown) {
+    let moving = event.clientX - startPoint;
+
+    let newTranslate = parseFloat(now) + parseFloat(moving);
+    console.log(
+      `moving : ${moving}, now : ${now}, newTranslate : ${newTranslate}`
+    );
+    $('.slide-container').css('transform', `translateX(${newTranslate}px)`);
+  }
+}
+imgC.on('mouseup', touchSlide3);
+function touchSlide3(event) {
+  endPoint = event.clientX;
+  checkMouseDown = false;
+  let distance = endPoint - startPoint;
+  let width = $('.img-container').width();
+  if (distance / width <= -0.3) {
+    Array.from(imgC).forEach((item, i) => {
+      if (item == this) {
+        if (i == numOfSlides - 1) i = -1;
+        $('.slide-num-btn')
+          .eq(i + 1)
+          .click();
+      }
+    });
+  } else if (distance / width >= 0.3) {
+    Array.from(imgC).forEach((item, i) => {
+      if (item == this) {
+        if (i == 0) i = numOfSlides;
+        $('.slide-num-btn')
+          .eq(i - 1)
+          .click();
+      }
+    });
+  } else {
+    Array.from(imgC).forEach((item, i) => {
+      if (item == this) {
+        $('.slide-num-btn').eq(i).click();
+      }
+    });
+  }
+  $('.slide-container').css('transition', 'all 0.5s');
+}
